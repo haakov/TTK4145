@@ -24,13 +24,7 @@ defmodule Ex4 do
   def send do
     {:ok, socket} = :gen_udp.open(0)
 
-    t1 = IO.gets("")
-    |> String.trim()
-
-    t2 = IO.gets("")
-    |> String.trim()
-
-    t12 = {{t1, :ok}, t2, :ok}
+    t12 = {"string in a struct", 1234}
 
     :gen_udp.send(socket, {127,0,0,1}, 20013, term_to_binary(t12))
   end
